@@ -1,23 +1,47 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { getAll } from "./BooksAPI.js"
+import Shelf from './Components/Shelf/Shelf';
 
 function App() {
+  const [currentlyReading, setCurrentlyReading] = useState([]);
+  const [wantToRead, setWantToRead] = useState([]);
+  const [read, setRead] = useState([]);
+
+
+  /**
+   * @description allocates the books to appropriate shlelves based on "shelf" property.
+   * @param {array} bookData 
+   */
+  const distributeBooksShelfWise = (bookData) => {
+    setCurrentlyReading(bookData.filter((book) =>
+      book.shelf === "currentlyReading"));
+    setWantToRead(bookData.filter((book) =>
+      book.shelf === "wantToRead"));
+    setRead(bookData.filter((book) =>
+      book.shelf === "read"));
+  }
+
+  useEffect(() => {
+    let mounted = true;
+    (async () => {
+      if (mounted) {
+        const bookData = await getAll().then((data) => data);
+        console.log(bookData);
+        distributeBooksShelfWise(bookData);
+      }
+    })();
+    return () => mounted = false;
+  }, [])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container'>
+        <Shelf books={currentlyReading}/>
+        <Shelf books={wantToRead}/>
+        <Shelf books={read}/>
+      </div>
     </div>
   );
 }
