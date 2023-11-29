@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { getAll } from "./BooksAPI.js"
+import { getAll } from "./Api/BooksAPI.js"
 import Shelf from './Components/Shelf/Shelf';
 
 function App() {
