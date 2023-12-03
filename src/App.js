@@ -37,6 +37,9 @@ function App() {
 
   return (
     <div className="App">
+      <div className='title'>
+        My Reads
+      </div>
       <div className='container'>
         <Shelf books={currentlyReading}/>
         <Shelf books={wantToRead}/>

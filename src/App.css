@@ -5,6 +5,18 @@
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 70px;
+    background-color: rgb(116, 220, 47);
+    color: white;
+    font-size: 40px;
 }
