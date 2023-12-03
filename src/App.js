@@ -10,7 +10,7 @@ function App() {
 
 
   /**
-   * @description allocates the books to appropriate shlelves based on "shelf" property.
+   * @description allocates the books to appropriate shlelves based on the "shelf" property.
    * @param {array} bookData 
    */
   const distributeBooksShelfWise = (bookData) => {

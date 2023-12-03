@@ -11,7 +11,7 @@ export default function Shelf({ books }) {
             <ul>
                 {books.map((book) => 
                     <li key={book.id}>
-                        <Book title={book.title} subtitle={book.subt} thumbnail={book.thumbnail}/>
+                        <Book title={book.title} subtitle={book.subt} thumbnail={book.imageLinks.thumbnail}/>
                     </li>
                 )}
             </ul>
