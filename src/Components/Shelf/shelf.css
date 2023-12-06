@@ -1,16 +1,16 @@
 .booklist-container {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 
 .book-list {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
     list-style: none;
 }
 
@@ -19,5 +19,4 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    font: 20px white 700;
 }

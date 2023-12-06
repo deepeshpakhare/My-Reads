@@ -32,7 +32,7 @@ function App() {
       }
     })();
     return () => mounted = false;
-  }, [])
+  }, [currentlyReading, wantToRead, read])
 
 
   return (
@@ -41,9 +41,9 @@ function App() {
         My Reads
       </div>
       <div className='container'>
-        <Shelf books={currentlyReading}/>
-        <Shelf books={wantToRead}/>
-        <Shelf books={read}/>
+        <Shelf books={currentlyReading} shelfName={"Currently Reading"}/>
+        <Shelf books={wantToRead} shelfName={"Want To Read"}/>
+        <Shelf books={read} shelfName={"Read"}/>
       </div>
     </div>
   );
