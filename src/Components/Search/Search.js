@@ -17,7 +17,6 @@ export default function Search() {
     const serachBook = async (query) => {
         setSearchQuery(query);
         const searchResult = await search(query.trim(), MAX_RESULTS);
-        console.log(`${query} ${searchResult}`);
         setBooks(searchResult);
     }
 

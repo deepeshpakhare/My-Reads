@@ -31,7 +31,6 @@ function App() {
       if (mounted) {
         const bookData = await getAll().then((data) => data);
         distributeBooksShelfWise(bookData);
-        console.log(bookData)
       }
     })();
     return () => mounted = false;
