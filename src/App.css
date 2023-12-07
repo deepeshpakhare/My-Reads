@@ -1,6 +1,6 @@
 @import "./Components/Book/book.css";
 @import "./Components/Shelf/shelf.css";
-@import "./Components/Serach/search.css";
+@import "./Components/Search/search.css";
 
 .container {
     display: flex;
