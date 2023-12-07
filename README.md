@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Project Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project is an app with three categories or shelves that denote the reading status of a book.
+You can change the shelf according to the reading status of the book. 
+You can also add new books to shelves by navigating to the search page.
 
 ## Available Scripts
 
