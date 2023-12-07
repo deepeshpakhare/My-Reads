@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { getAll } from "./Api/BooksAPI.js"
 import Shelf from './Components/Shelf/Shelf';
+import { Link } from "react-router-dom";
+
+
 
 function App() {
   const [currentlyReading, setCurrentlyReading] = useState([]);
@@ -36,17 +39,19 @@ function App() {
 
 
   return (
-    <div className="App">
-      <div className='title'>
-        My Reads
-      </div>
-      <div className='container'>
-        <Shelf books={currentlyReading} shelfName={"Currently Reading"}/>
-        <Shelf books={wantToRead} shelfName={"Want To Read"}/>
-        <Shelf books={read} shelfName={"Read"}/>
-      </div>
-    </div>
+      <div className="App">
+        <div className='title'>
+          My Reads
+        </div>
+        <div><Link to="/search"><center>Add New Books</center></Link></div>
+        <div className='container'>
+          <Shelf books={currentlyReading} shelfName={"Currently Reading"} />
+          <Shelf books={wantToRead} shelfName={"Want To Read"} />
+          <Shelf books={read} shelfName={"Read"} />
+        </div>
+      </div >
   );
+
 }
 
 export default App;

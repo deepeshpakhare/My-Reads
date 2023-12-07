@@ -15,16 +15,6 @@
     border: 0 solid white;
 }
 
-.menu {
-    position: absolute;
-    margin: 1290px -10px 0 100px;
-    list-style: none;
-    background-color: gainsboro;
-    width: 50px;
-    height: 70px;
-    font-size: 8px;
-}
-
 .book-title {
     display: flex;
     flex-direction: column;
