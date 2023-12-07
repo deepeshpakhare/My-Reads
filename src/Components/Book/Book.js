@@ -56,7 +56,7 @@ export default function Book({ book }) {
   return (
     <div className='book-container'>
       <div className='book'>
-        {<img src={book.imageLinks.thumbnail} alt={book.imageLinks.thumbnail} width="150" height="200" />}
+        {book.imageLinks && <img src={book.imageLinks.thumbnail} alt={book.imageLinks.thumbnail} width="150" height="200" />}
         <Dropdown menu={{ items, onClick }} >
           <button className='caret'><FaCaretDown color='white' size={20} /></button>
         </Dropdown>
@@ -64,7 +64,7 @@ export default function Book({ book }) {
         <div className='book-title'>
           {book.title}
           <div className='authors'>
-            {book.authors.map((author) => author)}
+            {book.authors && book.authors.map((author) => author)}
           </div>
         </div>
     </div>
