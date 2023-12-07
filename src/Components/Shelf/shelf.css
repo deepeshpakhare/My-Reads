@@ -19,4 +19,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    text-decoration: underline;
+    font-size: xx-large;
+    padding: 10px;
 }

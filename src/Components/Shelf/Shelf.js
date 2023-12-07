@@ -13,10 +13,6 @@ export default function Shelf({ books, shelfName }) {
                     <li key={book.id}>
                         <Book 
                             book = {book}
-                            /*title={book.title} 
-                            subtitle={book.subt} 
-                            thumbnail={book.imageLinks.thumbnail}
-                            shelfName={book.shelf}*/
                         />
                     </li>
                 )}
