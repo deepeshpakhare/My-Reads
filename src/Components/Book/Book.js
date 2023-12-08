@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaCaretDown } from "react-icons/fa";
 import { Dropdown } from 'antd'
 import { update } from '../../Api/BooksAPI';
 
 
 export default function Book({ book }) {
+  const [shelf,setShelf] = useState("");
 
   const items = [
     {
@@ -15,17 +16,17 @@ export default function Book({ book }) {
     {
       key: '2',
       label: "Currently Reading",
-      disabled: book.shelf === "currentlyReading" ? true : false,
+      disabled: shelf === "currentlyReading" ? true :false,
     },
     {
       key: '3',
       label: "Want To Read",
-      disabled: book.shelf === "wantToRead" ? true : false,
+      disabled: shelf === "wantToRead" ? true :false,
     },
     {
       key: '4',
       label: "Read",
-      disabled: book.shelf === "read" ? true : false,
+      disabled: shelf === "read" ? true :false
     },
   ];
 
@@ -50,8 +51,15 @@ export default function Book({ book }) {
    */
   const onClick = async ({ key }) => {
     const shelfNameToMove = shelfNames.filter((obj) => obj.key === key)[0].shelfName;
-    await update(book, shelfNameToMove);
+    setShelf(shelfNameToMove);
+    const updated = await update(book, shelfNameToMove);
+    console.log("updated",updated);
   }
+
+
+useEffect(()=> {
+  setShelf(book.shelf);
+},[])
 
   return (
     <div className='book-container'>

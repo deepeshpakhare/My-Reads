@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { search } from '../../Api/BooksAPI';
+import { search, getAll } from '../../Api/BooksAPI';
 import Book from '../Book/Book';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,19 @@ export default function Search() {
      */
     const serachBook = async (query) => {
         setSearchQuery(query);
-        const searchResult = await search(query.trim(), MAX_RESULTS);
+        const searchResult = await search(query.trim(), MAX_RESULTS).then((data) => data).catch((error)=>error);
+        const mainPageResult = await getAll().then((data) => data);
+        try {
+            for (let mainPageBook of mainPageResult) {
+                for (let searchResultBook of searchResult) {
+                    if (searchResultBook.title === mainPageBook.title) {
+                        searchResultBook.shelf = mainPageBook.shelf;
+                    }
+                }
+            }
+        }catch(error){
+
+        }
         setBooks(searchResult);
     }
 
