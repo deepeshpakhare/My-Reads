@@ -60,7 +60,7 @@ function App() {
     (async () => {
       if (mounted) {
         await getAll().then((data) => {
-          distributeBooksShelfWise(data)
+          distributeBooksShelfWise(data);
         });
         ;
       }

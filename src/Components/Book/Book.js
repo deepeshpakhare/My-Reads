@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { FaCaretDown } from "react-icons/fa";
 import { Dropdown } from 'antd'
 import { update } from '../../Api/BooksAPI';
-
+import PropTypes from 'prop-types'
 
 export default function Book({ book, updateShelf }) {
   const [shelf,setShelf] = useState("");
@@ -76,4 +76,8 @@ useEffect(()=> {
         </div>
     </div>
   )
+}
+
+Book.propTypes = {
+  book : PropTypes.object
 }

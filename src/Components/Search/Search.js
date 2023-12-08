@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { search, getAll, get } from '../../Api/BooksAPI';
+import { search, getAll } from '../../Api/BooksAPI';
 import Book from '../Book/Book';
 import { Link } from 'react-router-dom';
+
 
 
 export default function Search() {
@@ -11,7 +12,6 @@ export default function Search() {
     const [currentlyReading, setCurrentlyReading] = useState([]);
     const [wantToRead, setWantToRead] = useState([]);
     const [read, setRead] = useState([]);
-
 
     /**
      * @description "The function is called on every key type event of the input
@@ -54,15 +54,12 @@ export default function Search() {
         }
         if (shelftoMove === "currentlyReading") {
             setCurrentlyReading([...currentlyReading, book]);
-            
         }
         if (shelftoMove === "wantToRead") {
             setWantToRead([...wantToRead, book]);
-            
         }
         if (shelftoMove === "read") {
             setRead([...read, book]);
-            
         }
     }
 
