@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from '../Book/Book';
 
-export default function Shelf({ books, shelfName }) {
+export default function Shelf({ books, shelfName, onShelfChange }) {
   return (
     <div>
         <div className='shelf-name'>
@@ -13,6 +13,7 @@ export default function Shelf({ books, shelfName }) {
                     <li key={book.id}>
                         <Book 
                             book = {book}
+                            updateShelf = {onShelfChange}
                         />
                     </li>
                 )}

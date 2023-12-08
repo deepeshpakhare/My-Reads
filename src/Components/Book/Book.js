@@ -4,7 +4,7 @@ import { Dropdown } from 'antd'
 import { update } from '../../Api/BooksAPI';
 
 
-export default function Book({ book }) {
+export default function Book({ book, updateShelf }) {
   const [shelf,setShelf] = useState("");
 
   const items = [
@@ -51,9 +51,8 @@ export default function Book({ book }) {
    */
   const onClick = async ({ key }) => {
     const shelfNameToMove = shelfNames.filter((obj) => obj.key === key)[0].shelfName;
+    await update(book, shelfNameToMove).then(()=>{updateShelf(book,shelfNameToMove,shelf)});
     setShelf(shelfNameToMove);
-    const updated = await update(book, shelfNameToMove);
-    console.log("updated",updated);
   }
 
 
