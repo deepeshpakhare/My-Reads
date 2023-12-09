@@ -4,6 +4,7 @@ import { Dropdown } from 'antd'
 import { update } from '../../Api/BooksAPI';
 import PropTypes from 'prop-types'
 
+
 export default function Book({ book, updateShelf }) {
   const [shelf,setShelf] = useState("");
 
@@ -26,8 +27,13 @@ export default function Book({ book, updateShelf }) {
     {
       key: '4',
       label: "Read",
-      disabled: shelf === "read" ? true :false
+      disabled: shelf === "read" ? true :false,
     },
+    {
+      key: '5',
+      label: 'None',
+      disabled: shelf === "none" ? true : false,
+    }
   ];
 
   const shelfNames = [
@@ -42,6 +48,10 @@ export default function Book({ book, updateShelf }) {
     {
       key: "4",
       shelfName: "read"
+    }, 
+    {
+      key: "5",
+      shelfName: "none"
     }
   ]
 
@@ -51,6 +61,7 @@ export default function Book({ book, updateShelf }) {
    */
   const onClick = async ({ key }) => {
     const shelfNameToMove = shelfNames.filter((obj) => obj.key === key)[0].shelfName;
+    if (shelfNameToMove === "none") return;
     await update(book, shelfNameToMove).then(()=>{updateShelf(book,shelfNameToMove,shelf)});
     setShelf(shelfNameToMove);
   }

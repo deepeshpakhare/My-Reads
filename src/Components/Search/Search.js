@@ -23,8 +23,9 @@ export default function Search() {
         const searchResult = await search(query.trim(), MAX_RESULTS).then((data) => data).catch((error) => error);
         const mainPageResult = await getAll().then((data) => data);
         try {
-            for (let mainPageBook of mainPageResult) {
-                for (let searchResultBook of searchResult) {
+            for (let searchResultBook of searchResult ) {
+                searchResultBook.shelf = "none";
+                for (let mainPageBook  of mainPageResult) {
                     if (searchResultBook.title === mainPageBook.title) {
                         searchResultBook.shelf = mainPageBook.shelf;
                     }
