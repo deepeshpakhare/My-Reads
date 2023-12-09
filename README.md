@@ -6,7 +6,7 @@ The search page lets users search the books according to their interests. Users 
 The round menu button on the bottom right corner of each book thumbnail lets users select the shelf to move the book to.
 If the book that appears on the search page is already on your shelf then that shelf name appears disabled if users click on the menu button. If a book is not on any of the shelves, none of the shelves' names appear disabled. The user is free to move the book to the shelf of his choice using this menu button. The change in the selection of shelves on the search page reflects the changes on the main page.
 
-## Clone the project
+### `Clone the project`
 
 You can run the command, "git clone https://github.com/deepeshpakhare/My-Reads.git" to clone the repository to your local machine.
 
